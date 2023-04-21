@@ -1,112 +1,42 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>長條圖範本</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- 匯入 jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.1/chart.min.js"></script>
+  <!-- 引入 Bootstrap 的 CSS 檔案 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-
 <body>
-    <h1 class="product-name-1">古早味黑糖口味</h1>
-    <h1 class="product-name-2">墨西哥辣椒口味</h1>
-    <h1 class="product-name-3">巧克力杏仁口味</h1>
-    <canvas id="barChart"></canvas>
-    <script>
-        // 資料
-        var data = {
-            labels: ['2020', '2021', '2022'],
-            datasets: [{
-                label: '古早味黑糖口味',
-                data: [12, 15, 13],
-                backgroundColor: 'rgba(75, 192, 192, 0.8)', // 長條顏色
-                borderColor: 'rgb(75, 192, 192)', // 長條邊框顏色
-                borderWidth: 1 // 長條邊框寬度
-            }, {
-                label: '墨西哥辣椒口味',
-                data: [10, 9, 11],
-                backgroundColor: 'rgba(255, 99, 132, 0.8)',
-                borderColor: 'rgb(255, 99, 132)',
-                borderWidth: 1
 
-            }, {
-                label: '巧克力杏仁口味',
-                data: [8, 12, 10],
-                backgroundColor: 'rgba(255, 206, 86, 0.8)',
-                borderColor: 'rgb(255, 206, 86)',
-                borderWidth: 1
-            }]
-        };
+<!-- 垂直導航欄 -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- 品牌標誌 -->
+  <a class="navbar-brand" href="#">Navbar</a>
+  <!-- 切換按鈕，用於手機螢幕時展開或收合導航項目 -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- 導航項目列表 -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">首頁</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">關於我們</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">產品</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">聯絡我們</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-        // 選項
-        var options = {
-            responsive: true, // 響應式
-            scales: {
-                y: {
-                    beginAtZero: true // y 軸從 0 開始
-                }
-            }
-        };
-
-        // 創建長條圖
-        var ctx = document.getElementById('barChart').getContext('2d');
-        var myBarChart = new Chart(ctx, {
-            type: 'bar', // 使用長條圖
-            data: data,
-            options: options
-        });
-
-        // jQuery 事件處理器
-        $(".product-name-1").mouseenter(function () {
-            myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.2)';
-            myBarChart.update();
-        });
-        $(".product-name-1").mouseleave(function () {
-            myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.8)';
-            myBarChart.update();
-        });
-
-        myBarChart.canvas.addEventListener('mousemove', function (evt) {
-            var activePoints = myBarChart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
-            if (activePoints.length) {
-                var activeIndex = activePoints[0].index;
-                var activeDatasetIndex = activePoints[0].datasetIndex;
-                if (activeDatasetIndex === 0) {
-                    $('.product-name-1').css('color', 'red'); // 設定 .product-name-1 的文字顏色為紅色
-                }
-            } else {
-                $('.product-name-1').css('color', 'black');
-            }
-        });
-        myBarChart.canvas.addEventListener('mousemove', function (evt) {
-            var activePoints = myBarChart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
-            if (activePoints.length) {
-                var activeIndex = activePoints[0].index;
-                var activeDatasetIndex = activePoints[0].datasetIndex;
-                if (activeDatasetIndex === 1) {
-                    $('.product-name-2').css('color', 'red'); // 設定 .product-name-1 的文字顏色為紅色
-                }
-
-            } else {
-                $('.product-name-2').css('color', 'black');
-            }
-        });
-        myBarChart.canvas.addEventListener('mousemove', function (evt) {
-            var activePoints = myBarChart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
-            if (activePoints.length) {
-                var activeIndex = activePoints[0].index;
-                var activeDatasetIndex = activePoints[0].datasetIndex;
-                if (activeDatasetIndex === 2) {
-                    $('.product-name-3').css('color', 'red'); // 設定 .product-name-1 的文字顏色為紅色
-                }
-
-            } else {
-                $('.product-name-3').css('color', 'black');
-            }
-        });
-
-    </script>
+<!-- 引入 Bootstrap 的 JavaScript 檔案 -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
-
 </html>

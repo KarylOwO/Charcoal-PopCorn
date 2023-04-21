@@ -206,12 +206,14 @@ var data = {
         label: '古早味黑糖口味',
         data: [12, 15, 13],
         backgroundColor: 'rgba(75, 192, 192, 0.7)', // 長條顏色
+        hoverBackgroundColor: 'rgba(75, 192, 192, 1)',
         borderColor: 'rgb(75, 192, 192)', // 長條邊框顏色
         borderWidth: 1 // 長條邊框寬度
     }, {
         label: '墨西哥辣椒口味',
         data: [10, 9, 11],
         backgroundColor: 'rgba(255, 99, 132, 0.7)',
+        hoverBackgroundColor: 'rgba(255, 99, 132, 1)',
         borderColor: 'rgb(255, 99, 132)',
         borderWidth: 1
 
@@ -219,6 +221,7 @@ var data = {
         label: '巧克力杏仁口味',
         data: [8, 12, 10],
         backgroundColor: 'rgba(255, 206, 86, 0.7)',
+        hoverBackgroundColor: 'rgba(255, 206, 86, 1)',
         borderColor: 'rgb(255, 206, 86)',
         borderWidth: 1
 
@@ -258,21 +261,22 @@ myBarChart.canvas.addEventListener('mousemove', function (evt) {
     if (activeDatasetIndex === 0) {
         $('.product-0').removeClass('d-block').addClass('d-none');
         $('.product-1').removeClass('d-none').addClass('d-block');
-        myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 1)';
-        myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.2)';
-        myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.2)';
+        myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.7)';
+        myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.1)';
+        myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.1)';
     } else if (activeDatasetIndex === 1) {
         $('.product-0').removeClass('d-block').addClass('d-none');
         $('.product-2').removeClass('d-none').addClass('d-block');
-        myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.2)';
-        myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 1)';
-        myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.2)';
+        myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.1)';
+        myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.7)';
+        myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.1)';
     } else if (activeDatasetIndex === 2) {
         $('.product-0').removeClass('d-block').addClass('d-none');
         $('.product-3').removeClass('d-none').addClass('d-block');
-        myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.2)';
-        myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.2)';
-        myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 1)';
+        myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.1)';
+        myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.1)';
+        myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.7)';
+
     } else {
         $('.product-0').removeClass('d-none').addClass('d-block');
         myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.7)';
