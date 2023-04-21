@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>長條圖範本</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- 匯入 jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.1/chart.min.js"></script>
-    <style>
-        .red{
-            color: red;
-        }
-    </style>
 </head>
+
 <body>
-    <h1 class="">年度銷售</h1>
+    <h1 class="product-name-1">古早味黑糖口味</h1>
+    <h1 class="product-name-2">墨西哥辣椒口味</h1>
+    <h1 class="product-name-3">巧克力杏仁口味</h1>
     <canvas id="barChart"></canvas>
     <script>
         // 資料
@@ -29,7 +28,7 @@
                 backgroundColor: 'rgba(255, 99, 132, 0.8)',
                 borderColor: 'rgb(255, 99, 132)',
                 borderWidth: 1
-                
+
             }, {
                 label: '巧克力杏仁口味',
                 data: [8, 12, 10],
@@ -57,7 +56,57 @@
             options: options
         });
 
-       
+        // jQuery 事件處理器
+        $(".product-name-1").mouseenter(function () {
+            myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.2)';
+            myBarChart.update();
+        });
+        $(".product-name-1").mouseleave(function () {
+            myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.8)';
+            myBarChart.update();
+        });
+
+        myBarChart.canvas.addEventListener('mousemove', function (evt) {
+            var activePoints = myBarChart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
+            if (activePoints.length) {
+                var activeIndex = activePoints[0].index;
+                var activeDatasetIndex = activePoints[0].datasetIndex;
+                if (activeDatasetIndex === 0) {
+                    $('.product-name-1').css('color', 'red'); // 設定 .product-name-1 的文字顏色為紅色
+                }
+            } else {
+                $('.product-name-1').css('color', 'black');
+            }
+        });
+        myBarChart.canvas.addEventListener('mousemove', function (evt) {
+            var activePoints = myBarChart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
+            if (activePoints.length) {
+                var activeIndex = activePoints[0].index;
+                var activeDatasetIndex = activePoints[0].datasetIndex;
+                if (activeDatasetIndex === 1) {
+                    $('.product-name-2').css('color', 'red'); // 設定 .product-name-1 的文字顏色為紅色
+                }
+
+            } else {
+                $('.product-name-2').css('color', 'black');
+            }
+        });
+        myBarChart.canvas.addEventListener('mousemove', function (evt) {
+            var activePoints = myBarChart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
+            if (activePoints.length) {
+                var activeIndex = activePoints[0].index;
+                var activeDatasetIndex = activePoints[0].datasetIndex;
+                if (activeDatasetIndex === 2) {
+                    $('.product-name-3').css('color', 'red'); // 設定 .product-name-1 的文字顏色為紅色
+                }
+
+            } else {
+                $('.product-name-3').css('color', 'black');
+            }
+        });
+
     </script>
+
 </body>
+
 </html>
