@@ -142,7 +142,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $('.i-arrow').on('click', function () {
-        $('.buy-box').toggleClass('col-1 col-11');
+        $('.buy-box').toggleClass('col-lg-1 col-lg-11');
         $('.buy-show').toggleClass('d-none d-block');
         $('.checkout-show').toggleClass('d-none d-block');
         $('.product-list-box').addClass('animated');
@@ -245,126 +245,40 @@ var myBarChart = new Chart(ctx, {
 
 myBarChart.canvas.addEventListener('mousemove', function (evt) {
     var activePoints = myBarChart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
+    var activeDatasetIndex;
     if (activePoints.length) {
         var activeIndex = activePoints[0].index;
-        var activeDatasetIndex = activePoints[0].datasetIndex;
-        if (activeDatasetIndex === 0) {
-            
-            $('.product-0').removeClass('d-block').addClass('d-none');
-            $('.product-1').removeClass('d-none').addClass('d-block');
-            myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 1)';
-            myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.2)';
-            myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.2)';
-            myBarChart.update();
-        }
+        activeDatasetIndex = activePoints[0].datasetIndex;
+    } else {
+        activeDatasetIndex = -1;
+    }
+
+    $('.product-1, .product-2, .product-3').removeClass('d-block').addClass('d-none');
+
+    if (activeDatasetIndex === 0) {
+        $('.product-0').removeClass('d-block').addClass('d-none');
+        $('.product-1').removeClass('d-none').addClass('d-block');
+        myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 1)';
+        myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.2)';
+        myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.2)';
+    } else if (activeDatasetIndex === 1) {
+        $('.product-0').removeClass('d-block').addClass('d-none');
+        $('.product-2').removeClass('d-none').addClass('d-block');
+        myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.2)';
+        myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 1)';
+        myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.2)';
+    } else if (activeDatasetIndex === 2) {
+        $('.product-0').removeClass('d-block').addClass('d-none');
+        $('.product-3').removeClass('d-none').addClass('d-block');
+        myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.2)';
+        myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.2)';
+        myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 1)';
     } else {
         $('.product-0').removeClass('d-none').addClass('d-block');
-        $('.product-1').removeClass('d-block').addClass('d-none');
         myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.7)';
         myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.7)';
         myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.7)';
-        myBarChart.update();
     }
+
+    myBarChart.update();
 });
-myBarChart.canvas.addEventListener('mousemove', function (evt) {
-    var activePoints = myBarChart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
-    if (activePoints.length) {
-        var activeIndex = activePoints[0].index;
-        var activeDatasetIndex = activePoints[0].datasetIndex;
-        if (activeDatasetIndex === 1) {
-            $(".product-name-1").mouseenter(function () {
-                $('.product-0').removeClass('d-block').addClass('d-none');
-                $('.product-2').removeClass('d-none').addClass('d-block');
-            })
-            myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.2)';
-            myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 1)';
-            myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.2)';
-            myBarChart.update();
-        }
-
-    } else {
-        $('.product-0').removeClass('d-none').addClass('d-block');
-        $('.product-2').removeClass('d-block').addClass('d-none');
-        myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.7)';
-        myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.7)';
-        myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.7)';
-        myBarChart.update();
-    }
-});
-myBarChart.canvas.addEventListener('mousemove', function (evt) {
-    var activePoints = myBarChart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
-    if (activePoints.length) {
-        var activeIndex = activePoints[0].index;
-        var activeDatasetIndex = activePoints[0].datasetIndex;
-        if (activeDatasetIndex === 2) {
-            $(".product-name-1").mouseenter(function () {
-                $('.product-0').removeClass('d-block').addClass('d-none');
-                $('.product-3').removeClass('d-none').addClass('d-block')
-            })
-            myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.2)';
-            myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.2)';
-            myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 1)';
-            myBarChart.update();
-        }
-
-    } else {
-        $('.product-0').removeClass('d-none').addClass('d-block');
-        $('.product-3').removeClass('d-block').addClass('d-none');
-        myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.7)';
-        myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.7)';
-        myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.7)';
-        myBarChart.update();
-    }
-});
-
-// $(document).ready(function() {
-//     $(".product-name-1").mouseenter(function() {
-//         $('.product-0').removeClass('d-block').addClass('d-none');
-//         $('.product-1').removeClass('d-none').addClass('d-block');
-
-//         myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 1)';
-//         myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.2)';
-//         myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.2)';
-//         myBarChart.update();
-//     });
-//     $(".product-name-1").mouseleave(function() {
-//         $('.product-0').removeClass('d-none').addClass('d-block');
-//         $('.product-1').removeClass('d-block').addClass('d-none');
-//         myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.7)';
-//         myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.7)';
-//         myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.7)';
-//         myBarChart.update();
-//     });
-//     $(".product-name-2").mouseenter(function() {
-//         $('.product-0').removeClass('d-block').addClass('d-none');
-//         $('.product-2').removeClass('d-none').addClass('d-block');
-//         myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.2)';
-//         myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 1)';
-//         myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.2)';
-//         myBarChart.update();
-//     });
-//     $(".product-name-2").mouseleave(function() {
-//         $('.product-0').removeClass('d-none').addClass('d-block');
-//         $('.product-2').removeClass('d-block').addClass('d-none');
-//         myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.7)';
-//         myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.7)';
-//         myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.7)';
-//         myBarChart.update();
-//     });
-//     $(".product-name-3").mouseenter(function() {
-//         $('.product-0').removeClass('d-block').addClass('d-none');
-//         $('.product-3').removeClass('d-none').addClass('d-block');
-//         myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.2)';
-//         myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.2)';
-//         myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 1)';
-//         myBarChart.update();
-//     });
-//     $(".product-name-3").mouseleave(function() {
-//         $('.product-0').removeClass('d-none').addClass('d-block');
-//         $('.product-3').removeClass('d-block').addClass('d-none');
-//         myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.7)';
-//         myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.7)';
-//         myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.7)';
-//         myBarChart.update();
-//     });
-// });

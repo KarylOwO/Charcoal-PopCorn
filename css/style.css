@@ -10,6 +10,7 @@ body::-webkit-scrollbar {
 
 body{
 	background-color: var(--main-color);
+    overflow-x: hidden;
 }
 
 *{
@@ -243,6 +244,10 @@ h1 span:nth-child(4) {
 
 .product-name-1,.product-name-2,.product-name-3 {
     cursor: pointer;
+}
+
+.i-arrow{
+    font-size: 3vw;
 }
 /* shop */
 
