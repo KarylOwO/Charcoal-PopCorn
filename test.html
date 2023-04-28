@@ -1,42 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <!-- 引入 Bootstrap 的 CSS 檔案 -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        p{
+            margin: 
+        }
+    </style>
 </head>
 <body>
-
-<!-- 垂直導航欄 -->
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <!-- 品牌標誌 -->
-  <a class="navbar-brand" href="#">Navbar</a>
-  <!-- 切換按鈕，用於手機螢幕時展開或收合導航項目 -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <!-- 導航項目列表 -->
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">首頁</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">關於我們</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">產品</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">聯絡我們</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-<!-- 引入 Bootstrap 的 JavaScript 檔案 -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <p class="fs1 p-120">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, corporis ullam accusamus at, tempore cum, quaerat quae necessitatibus dolores eaque exercitationem. Aliquam nihil exercitationem cum quibusdam, esse aut consectetur repudiandae?</p>
+    <script src="javascript/jquery.min.js"></script>
+    <script>
+    //    $(document).ready(function() {
+    //     var properties = {
+    //         'fs-': 'font-size',
+    //         'p-': 'padding',
+    //         'pt-': 'padding-top',
+    //         'pb-': 'padding-bottom',
+    //         'pl-': 'padding-left',
+    //         'pr-': 'padding-right',
+    //         'm-': 'margin',
+    //         'mt-': 'margin-top',
+    //         'mb-': 'margin-bottom',
+    //         'ml-': 'margin-left',
+    //         'mr-': 'margin-right',
+    //     };
+    //     for (var i = 1; i <= 999; i++) {
+    //         $.each(properties, function(key, value) {
+    //         $('.' + key + i).css(value, i + 'px');
+    //         });
+    //     }
+    //     });
+    document.addEventListener("DOMContentLoaded",function(){var e={'fs-':'font-size','p-':'padding','pt-':'padding-top','pb-':'padding-bottom','pl-':'padding-left','pr-':'padding-right','m-':'margin','mt-':'margin-top','mb-':'margin-bottom','ml-':'margin-left','mr-':'margin-right'};for(var t=1;t<=999;t++)Object.entries(e).forEach(([e,a])=>{var r=document.querySelectorAll("."+e+t);for(var i=0;i<r.length;i++)r[i].style[a]=t+"px"})});
+    </script>
 </body>
 </html>

@@ -4,10 +4,18 @@ $(document).ready(function () {
     $(".Subscribe-box").mouseenter(function () {
         $(".Subscribe-box").css("color", "var(--main-color)");
         $(".Subscribe-box").css("background", "var(--sub-color)");
+        $('.Subscribe-text').removeClass('d-block').addClass('d-none');
+        $('.form').removeClass('d-none').addClass('d-block');
+
+        $('.Subscribe-check').removeClass('d-block').addClass('d-none');
     });
     $(".Subscribe-box").mouseleave(function () {
         $(".Subscribe-box").css("color", "var(--sub-color)");
         $(".Subscribe-box").css("background", "var(--main-color)");
+        $('.Subscribe-text').removeClass('d-none').addClass('d-block');
+        $('.form').removeClass('d-block').addClass('d-none');
+
+        $('.Subscribe-check').removeClass('d-block').addClass('d-none');
     });
     $(".follow-box").mouseenter(function () {
         $(".follow-box").css("color", "var(--main-color)");
@@ -141,6 +149,23 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+    $('.read-btn-1').on('click', function () {
+        $('.read-1').removeClass('d-block').addClass('d-none');
+        $('.read-2').removeClass('d-none').addClass('d-block');
+    });
+    $('.read-btn-2').on('click', function () {
+        $('.read-1').removeClass('d-block').addClass('d-none');
+        $('.read-3').removeClass('d-none').addClass('d-block');
+    });
+    $('.read-btn-3').on('click', function () {
+        $('.read-1').removeClass('d-none').addClass('d-block');
+        $('.read-2').removeClass('d-block').addClass('d-none');
+        $('.read-3').removeClass('d-block').addClass('d-none');
+    });
+
+});
+
+$(document).ready(function () {
     $('.i-arrow').on('click', function () {
         $('.buy-box').toggleClass('col-lg-1 col-lg-11');
         $('.buy-show').toggleClass('d-none d-block');
@@ -182,7 +207,9 @@ $(document).ready(function () {
             var itemTotalPrice = item.price * item.quantity;
             totalPrice += itemTotalPrice;
             var cartItem = "<div>" + itemName + " * " + item.quantity + " - $" + itemTotalPrice + "</div>" + "<hr>";
+            var itemquantity = "<div>" +  item.quantity + "</div>";
             $("#cart").append(cartItem);
+            alert( itemName + " * " + item.quantity + " 已加入購物車");
         }
         var totalText = "總金額: $" + totalPrice;
         $("#cart").append("<div><strong>" + totalText + "</strong></div>");
@@ -246,7 +273,7 @@ var myBarChart = new Chart(ctx, {
     options: options
 });
 
-myBarChart.canvas.addEventListener('mousemove', function (evt) {
+myBarChart.canvas.addEventListener('click', function (evt) {
     var activePoints = myBarChart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
     var activeDatasetIndex;
     if (activePoints.length) {
@@ -261,28 +288,239 @@ myBarChart.canvas.addEventListener('mousemove', function (evt) {
     if (activeDatasetIndex === 0) {
         $('.product-0').removeClass('d-block').addClass('d-none');
         $('.product-1').removeClass('d-none').addClass('d-block');
-        myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.7)';
+        $('.product-0').addClass('animated');
+        $('.product-1').addClass('animated');
+        $('.product-2').addClass('animated');
+        $('.product-3').addClass('animated');
+        myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 1)';
         myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.1)';
         myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.1)';
     } else if (activeDatasetIndex === 1) {
         $('.product-0').removeClass('d-block').addClass('d-none');
         $('.product-2').removeClass('d-none').addClass('d-block');
         myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.1)';
-        myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.7)';
+        myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 1)';
         myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.1)';
+        $('.product-0').addClass('animated');
+        $('.product-1').addClass('animated');
+        $('.product-2').addClass('animated');
+        $('.product-3').addClass('animated');
     } else if (activeDatasetIndex === 2) {
         $('.product-0').removeClass('d-block').addClass('d-none');
         $('.product-3').removeClass('d-none').addClass('d-block');
         myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.1)';
         myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.1)';
-        myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.7)';
-
+        myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 1)';
+        $('.product-0').addClass('animated');
+        $('.product-1').addClass('animated');
+        $('.product-2').addClass('animated');
+        $('.product-3').addClass('animated');
     } else {
         $('.product-0').removeClass('d-none').addClass('d-block');
         myBarChart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.7)';
         myBarChart.data.datasets[1].backgroundColor = 'rgba(255, 99, 132, 0.7)';
         myBarChart.data.datasets[2].backgroundColor = 'rgba(255, 206, 86, 0.7)';
+        $('.product-0').addClass('animated');
+        $('.product-1').addClass('animated');
+        $('.product-2').addClass('animated');
+        $('.product-3').addClass('animated');
     }
 
     myBarChart.update();
 });
+
+$(document).ready(function () {
+    const $chatBotBtn = $("#chat-bot-btn");
+    const $chatWindow = $("#chat-window");
+    const $chatMessages = $(".chat-messages");
+    const $chatInput = $(".chat-input input");
+    const $chatSendBtn0 = $(".chat-btn-0");
+    const $chatSendBtn1 = $(".chat-btn-1");
+    const $chatSendBtn2 = $(".chat-btn-2");
+    const $chatSendBtn3 = $(".chat-btn-3");
+    const $chatSendBtn4 = $(".chat-btn-4");
+
+    $chatBotBtn.click(function () {
+      if ($chatWindow.css("display") == "none") {
+        $chatWindow.css("display", "flex");
+      } else {
+        $chatWindow.css("display", "none");
+      }
+    });
+
+
+    $chatSendBtn0.click(function () {
+        const message = $chatInput.val();
+        
+        // add message from user
+        const messageMine = $('<div class="chat-message message-mine"></div>');
+        messageMine.text("常見問題解答");
+        $chatMessages.append(messageMine);
+      
+        // add message from bot
+        const messageYours = $('<div class="chat-message message-bot"></div>');
+        messageYours.text("請問您有什麼關於爆米花的疑問嗎？您可以在網站上的常見問題解答頁面找到相關答案，或者告訴我們您的問題，我們會盡快為您解答。");
+        $chatMessages.append(messageYours);
+      
+        // clear input field
+        $chatInput.val("");
+    });
+
+    $chatSendBtn1.click(function () {
+        const message = $chatInput.val();
+        
+        // add message from user
+        const messageMine = $('<div class="chat-message message-mine"></div>');
+        messageMine.text("訂單查詢");
+        $chatMessages.append(messageMine);
+      
+        // add message from bot
+        const messageYours = $('<div class="chat-message message-bot"></div>');
+        messageYours.text("如果您已經在我們的網站上下單，您可以提供訂單編號，我們會幫您查詢訂單狀態、配送進度等相關資訊。");
+        $chatMessages.append(messageYours);
+      
+        // clear input field
+        $chatInput.val("");
+    });
+
+    $chatSendBtn2.click(function () {
+        const message = $chatInput.val();
+        
+        // add message from user
+        const messageMine = $('<div class="chat-message message-mine"></div>');
+        messageMine.text("售後服務");
+        $chatMessages.append(messageMine);
+      
+        // add message from bot
+        const messageYours = $('<div class="chat-message message-bot"></div>');
+        messageYours.text("如果您收到的商品有任何品質問題或運送損壞，請與我們聯繫，我們會儘快處理並為您提供售後服務。");
+        $chatMessages.append(messageYours);
+      
+        // clear input field
+        $chatInput.val("");
+    });
+
+    $chatSendBtn3.click(function () {
+        const message = $chatInput.val();
+        
+        // add message from user
+        const messageMine = $('<div class="chat-message message-mine"></div>');
+        messageMine.text("其他相關諮詢");
+        $chatMessages.append(messageMine);
+      
+        // add message from bot
+        const messageYours = $('<div class="chat-message message-bot"></div>');
+        messageYours.text("如果您對於爆米花以外的其他相關議題有疑問，例如合作、活動、促銷等，請隨時向我們詢問，我們會竭誠為您提供幫助。");
+        $chatMessages.append(messageYours);
+      
+        // clear input field
+        $chatInput.val("");
+    });
+
+    $chatSendBtn4.click(function () {
+      const message = $chatInput.val();
+      if (message !== "") {
+        // add message from user
+        const messageMine = $('<div class="chat-message message-mine"></div>');
+        messageMine.text(message);
+        $chatMessages.append(messageMine);
+ 
+        // add message from bot
+        const messageYours = $('<div class="chat-message message-bot"></div>');
+        messageYours.text("感謝您提供建議與問題，稍後將有專人為您服務！");
+        $chatMessages.append(messageYours);
+
+        // clear input field
+        $chatInput.val("");
+      }
+    });
+});
+
+$(window).scroll(function(){
+    let h = $(window).scrollTop();
+    console.log(h);
+    if(h > 300 && h < 3700){
+        $('.fix-btn').fadeIn();
+    }
+    else{
+        $('.fix-btn').fadeOut();
+    }
+})
+
+$(window).scroll(function(){
+    let h = $(window).scrollTop();
+    if(h > 900 && h < 4000){
+        $('.nav').fadeIn();
+    }
+    else{
+        $('.nav').fadeOut();
+    }
+})
+
+$('.chat-messages').on('DOMSubtreeModified', function(){
+    $(this).scrollTop($(this).prop('scrollHeight'));
+});
+
+$(document).ready(function() {
+    // Hide .box-2 initially
+    $('.form').addClass('d-none');
+
+    // Add input event listener to email input
+    $('input[type="email"]').on('input', function() {
+        var email = $(this).val();
+        var isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        if (isValidEmail) {
+            // Enable submit button
+            $('.submit').prop('disabled', false);
+        } else {
+            // Disable submit button
+            $('.submit').prop('disabled', true);
+        }
+    });
+
+    // Add click event listener to submit button
+    $('.submit').on('click', function(event) {
+        event.preventDefault();
+        // Show .box-2 by removing d-none class and adding d-block class
+        $('.form').removeClass('d-block').addClass('d-none');
+        $('.Subscribe-check').removeClass('d-none').addClass('d-block');
+        // Clear email input
+        $('input[type="email"]').val('');
+        // Disable submit button
+        $(this).prop('disabled', true);
+    });
+});
+
+$(".nav-link-0").click(function() {
+    $("html, body").animate({scrollTop: 0}, 1);
+});
+$(".nav-link-1").click(function() {
+    $("html, body").animate({scrollTop: 1000}, 1);
+});
+$(".nav-link-2").click(function() {
+    $("html, body").animate({scrollTop: 1800}, 1);
+});
+$(".nav-link-3").click(function() {
+    $("html, body").animate({scrollTop: 2500}, 1);
+});
+$(".nav-link-4").click(function() {
+    $("html, body").animate({scrollTop: 3200}, 1);
+});
+$(".nav-link-5").click(function() {
+    $("html, body").animate({scrollTop: 4153}, 1);
+});
+
+let autoPlayInterval;
+
+function startAutoPlay() {
+  autoPlayInterval = setInterval(function () {
+    let lists = document.querySelectorAll('.item');
+    document.getElementById('slide').appendChild(lists[0]);
+  }, 4500);
+}
+
+function stopAutoPlay() {
+  clearInterval(autoPlayInterval);
+}
+
+startAutoPlay();
