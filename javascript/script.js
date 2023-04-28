@@ -207,7 +207,8 @@ $(document).ready(function () {
             var itemTotalPrice = item.price * item.quantity;
             totalPrice += itemTotalPrice;
             var cartItem = "<div>" + itemName + " * " + item.quantity + " - $" + itemTotalPrice + "</div>" + "<hr>";
-            var itemquantity = "<div>" +  item.quantity + "</div>";
+            var itemquantity = "<p>" +  item.quantity + "</p>";
+            // $(".shop-img-1").append(itemquantity);
             $("#cart").append(cartItem);
             alert( itemName + " * " + item.quantity + " 已加入購物車");
         }
