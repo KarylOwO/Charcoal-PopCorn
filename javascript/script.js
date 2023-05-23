@@ -175,6 +175,7 @@ $(document).ready(function () {
     });
     $('.arrow-show').on('click', function () {
         $('.arrow-show').toggleClass('d-none d-block');
+        $('.bi-cart').toggleClass('d-none d-block');
     });
 
 });
@@ -202,19 +203,22 @@ $(document).ready(function () {
     function renderCart() {
         $("#cart").empty();
         var totalPrice = 0;
+        var totalQuantity = 0; // 新增變數用於計算 item.quantity 的加總
         for (var itemName in cartItems) {
             var item = cartItems[itemName];
             var itemTotalPrice = item.price * item.quantity;
             totalPrice += itemTotalPrice;
+            totalQuantity += item.quantity; // 將每個 item.quantity 加總到 totalQuantity
             var cartItem = "<div>" + itemName + " * " + item.quantity + " - $" + itemTotalPrice + "</div>" + "<hr>";
-            var itemquantity = "<p>" +  item.quantity + "</p>";
-            // $(".shop-img-1").append(itemquantity);
             $("#cart").append(cartItem);
-            alert( itemName + " * " + item.quantity + " 已加入購物車");
         }
         var totalText = "總金額: $" + totalPrice;
+        var totalQuantityText = "" + totalQuantity; // 顯示加總後的 item.quantity
         $("#cart").append("<div><strong>" + totalText + "</strong></div>");
+        $("#small-cart").empty(); // 清空 #small-cart 元素內容
+        $("#small-cart").append("<p>" + totalQuantityText + "</p>"); // 顯示總數量在 #small-cart 元素中
     }
+    
 
     // 點擊結帳按鈕
     $("#checkout").on("click", function () {
@@ -448,15 +452,15 @@ $(window).scroll(function(){
     }
 })
 
-$(window).scroll(function(){
-    let h = $(window).scrollTop();
-    if(h > 900 && h < 4000){
-        $('.nav').fadeIn();
-    }
-    else{
-        $('.nav').fadeOut();
-    }
-})
+// $(window).scroll(function(){
+//     let h = $(window).scrollTop();
+//     if(h > 900 && h < 1000){
+//         $('.nav').fadeIn();
+//     }
+//     else{
+//         $('.nav').fadeOut();
+//     }
+// })
 
 $('.chat-messages').on('DOMSubtreeModified', function(){
     $(this).scrollTop($(this).prop('scrollHeight'));
@@ -499,13 +503,13 @@ $(".nav-link-1").click(function() {
     $("html, body").animate({scrollTop: 1000}, 1);
 });
 $(".nav-link-2").click(function() {
-    $("html, body").animate({scrollTop: 1800}, 1);
+    $("html, body").animate({scrollTop: 2000}, 1);
 });
 $(".nav-link-3").click(function() {
-    $("html, body").animate({scrollTop: 2500}, 1);
+    $("html, body").animate({scrollTop: 3150}, 1);
 });
 $(".nav-link-4").click(function() {
-    $("html, body").animate({scrollTop: 3200}, 1);
+    $("html, body").animate({scrollTop: 1500}, 1);
 });
 $(".nav-link-5").click(function() {
     $("html, body").animate({scrollTop: 4153}, 1);

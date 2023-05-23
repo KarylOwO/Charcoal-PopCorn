@@ -8,21 +8,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.4/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/index2.css">
     <style>
 
     </style>
 </head>
 <body>
 
-    <nav class="nav">
-        <img src="image/LogoChinese.png" alt="" class="nav-logo">
-        <a class="nav-link nav-link-0 sub-color font-size-4"><i class="bi bi-house pe-2"></i>回到主頁</a>
-        <a class="nav-link nav-link-1 sub-color font-size-4"><i class="bi bi-people pe-2"></i>關於我們</a>
-        <a class="nav-link nav-link-2 sub-color font-size-4"><i class="bi bi-fire pe-2"></i>熱銷推薦</a>
-        <a class="nav-link nav-link-3 sub-color font-size-4"><i class="bi bi-book pe-2"></i>延伸閱讀</a>
-        <a class="nav-link nav-link-4 sub-color font-size-4"><i class="bi bi-bag-check pe-2"></i>線上訂購</a>
-        <a class="nav-link nav-link-5 sub-color font-size-4"><i class="bi bi-chat-left-heart pe-2"></i>商品評價</a>
+    <nav class="nav fixed-top container justify-content-between mt-5 py-2 d-lg-flex d-none sub-bg">
+        <img src="image/NewLogo(forBrightBG).png" alt="" class="nav-logo ms-4">
+        <div class="d-flex pt-1">
+            <a class="nav-link nav-link-0 main-color font-size-4"><i class="bi bi-house pe-2"></i>回到主頁</a>
+            <a class="nav-link nav-link-1 main-color font-size-4"><i class="bi bi-people pe-2"></i>關於我們</a>
+            <a class="nav-link nav-link-2 main-color font-size-4"><i class="bi bi-fire pe-2"></i>熱銷推薦</a>
+            <a class="nav-link nav-link-3 main-color font-size-4"><i class="bi bi-bag-check pe-2"></i>線上訂購</a>
+            <a class="nav-link nav-link-5 main-color font-size-4"><i class="bi bi-chat-left-heart pe-2"></i>商品評價</a>
+        </div>
     </nav>
 
     <header>
@@ -92,15 +92,25 @@
 		</div>
 	</div>
 
-    <section class="about container hero p-4" id="about">
+    <section class="about hero" id="about">
+        <div class="container">
         <h1 class="sub-color font-size-1 wow fadeInLeftBig text-center">
             <span>關</span>
             <span>於</span>
             <span>我</span>
             <span>們</span>
         </h1>
+        <div class="popcorn-bg container-fluid">
+            <img src="image/Popcorn-1.png" alt="" class="popcorn-1">
+            <img src="image/Popcorn-2.png" alt="" class="popcorn-2">
+            <img src="image/Popcorn-3.png" alt="" class="popcorn-3">
+            <img src="image/Popcorn-4.png" alt="" class="popcorn-4">
+        </div>
         <div class="row py-5 about-1">
-            <img src="image/about01.jpg" alt="" class="col-lg-6 about-img-1 wow fadeInLeftBig animated">
+            <div class="position-relative">
+                <div class="dot"></div>
+            </div>
+            <img src="image/about01.jpg" alt="" class="about-img-1 wow fadeInLeftBig animated  col-lg-6">
             <div class="col-lg-6 sub-color font-size-4 text-center">
                 <h1 class="font-size-2 pt-5 info-color wow fadeInRightBig animated animation-delay-250ms about-h1-1">經典口味，專業製造</h1>
                 <p class="px-4 pt-4 wow fadeInRightBig animated animation-delay-500ms about-p-1">我們是一家有著悠久歷史的老店，自１９７６年開幕以來，一直以來都是爆米花的專業製造商。我們致力於為顧客提供最優質、最美味的爆米花，堅持以新鮮、高品質的食材為基礎，製作出獨特的口味和口感。</p>
@@ -108,6 +118,9 @@
             </div>
         </div>
         <div class="row py-5 about-2 d-none">
+            <div class="position-relative">
+                <div class="dot"></div>
+            </div>
             <img src="image/about02.jpg" alt="" class="col-lg-6 about-img-2 fadeInLeftBig animated">
             <div class="col-lg-6 sub-color font-size-4 text-center">
                 <h1 class="font-size-2 pt-5 info-color fadeInRightBig animated animation-delay-250ms about-h1-2">新鮮風味，獨特口感</h1>
@@ -116,6 +129,9 @@
             </div>
         </div>
         <div class="row py-5 about-3 d-none">
+            <div class="position-relative">
+                <div class="dot"></div>
+            </div>
             <img src="image/about03.jpg" alt="" class="col-lg-6 about-img-3 fadeInLeftBig animated">
             <div class="col-lg-6 sub-color font-size-4 text-center">
                 <h1 class="font-size-2 pt-5 info-color fadeInRightBig animated animation-delay-250ms about-h1-3">安心購物，快速配送</h1>
@@ -130,9 +146,10 @@
             <hr class="col">
             <i class="bi bi-3-circle circle-3 col-lg-1 col-2"></i>
         </div>
+        </div>
     </section>
 
-    <section class="product container hero p-4" id="product">
+    <section class="product container hero" id="product">
         <h1 class="sub-color font-size-1 text-end wow fadeInRightBig text-center" style="padding-left: 15px;">
             <span>熱</span>
             <span>銷</span>
@@ -170,7 +187,7 @@
         </div>
     </section>
     
-    <div class="read hero" id="read">
+    <!-- <div class="read hero" id="read">
         <div class="read-1 d-block">
             <h1 class="text-center pt-5 font-size-1 sub-color">為什麼選擇我們</h1>
             <p class="text-center py-3 font-size-3 info-color container">無論是為了享受自己的美味時刻，或是送禮給親朋好友，我們都是您最佳的選擇。請瀏覽我們的網站，選購您喜愛的爆米花，讓您的味蕾感受獨特的爆米花饗宴！</p>
@@ -193,9 +210,10 @@
                 <button class="about-btn mt-3 mx-5 read-btn-3">回到上一頁</button>
             </div>
         </div>        
-    </div>
+    </div> -->
 
-    <section class="shop container hero p-4" id="shop">
+    <section class="shop hero" id="shop">
+        <div class="container">
         <h1 class="sub-color font-size-1 pb-5 wow fadeInLeftBig">
             <span>線</span>
             <span>上</span>
@@ -203,9 +221,9 @@
             <span>購</span>
         </h1>
         <div class="row shop-box wow fadeIn">
-            <div class="buy-box col-lg-11">
+            <div class="buy-box col-lg-11 main-bg">
                 <h1 class="sub-color py-lg-5 py-4 text-center">產品</h1>
-                <div class="d-block buy-show">
+                <div class="d-block buy-show ">
                     <div id="product-list" class="row">
                         <div class="col-4 product-list-box bounceIn animated animation-delay-500ms">
                           <img src="image/巧克力杏仁.jpg" alt="" class="">
@@ -234,10 +252,16 @@
                     </div>
                 </div>
                 <i class="bi bi-arrow-right-circle-fill i-arrow arrow-show text-center sub-color d-none"></i>
+
             </div>
             <div class="checkout-box col sub-bg">
                 <h1 class="main-color py-lg-5 py-4 text-center">結帳</h1>
                 <i class="bi bi-arrow-left-circle-fill i-arrow arrow-show text-center main-color"></i>
+                <i class="bi bi-cart font-size-2 text-center d-block d-none d-lg-block"></i>
+                <div id="small-cart" class="d-none d-lg-block">
+                    <!-- 購物車內容會在 JavaScript 中動態生成 -->
+                    
+                </div>
                 <div id="quantity" class="fs-3">
                     
                 </div>
@@ -251,8 +275,9 @@
               </div>
             </div>
         </div>
+        </div>
     </section>
-    <footer class="hero" id="footer">
+    <footer class="" id="footer">
         <div class="comment">
             <h1 class="text-center pt-5 sub-color font-size-1 wow fadeInDown">
                 <span>商</span>
